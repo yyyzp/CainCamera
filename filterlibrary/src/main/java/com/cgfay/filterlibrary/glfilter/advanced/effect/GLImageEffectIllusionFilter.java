@@ -80,6 +80,8 @@ public class GLImageEffectIllusionFilter extends GLImageFilter {
             mLastTextureHandle = GLES30.glGetUniformLocation(mProgramHandle, "inputTextureLast");
             mLookupTableHandle = GLES30.glGetUniformLocation(mProgramHandle, "lookupTable");
         }
+//        setLookupTable(  OpenGLUtils.createTextureFromAssets(mContext, "filters/skin_lookup.png"));
+
     }
 
     @Override
@@ -95,6 +97,8 @@ public class GLImageEffectIllusionFilter extends GLImageFilter {
         GLES30.glActiveTexture(GLES30.GL_TEXTURE2);
         GLES30.glBindTexture(getTextureType(), mLookupTable);
         GLES30.glUniform1i(mLastTextureHandle, 2);
+
+//        setLastTexture(getTextureId());
     }
 
     /**

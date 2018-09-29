@@ -88,7 +88,7 @@ public class GLImageFilter {
 
     // 变换矩阵
     protected float[] mMVPMatrix = new float[16];
-
+    private int mTextureId;
     public GLImageFilter(Context context) {
         this(context, VERTEX_SHADER, FRAGMENT_SHADER_2D);
     }
@@ -187,6 +187,7 @@ public class GLImageFilter {
      */
     public boolean drawFrame(int textureId, FloatBuffer vertexBuffer,
                           FloatBuffer textureBuffer) {
+        mTextureId=textureId;
         // 没有初始化、输入纹理不合法、滤镜不可用时直接返回
         if (!mIsInitialized || textureId == OpenGLUtils.GL_NOT_INIT || !mFilterEnable) {
             return false;
@@ -303,7 +304,9 @@ public class GLImageFilter {
     public int getTextureType() {
         return GLES30.GL_TEXTURE_2D;
     }
-
+    public int getTextureId(){
+        return mFrameBufferTextures[0];
+    }
     /**
      * 调用glDrawArrays/glDrawElements之前，方便添加其他属性
      */

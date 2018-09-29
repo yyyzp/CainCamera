@@ -34,6 +34,8 @@ import com.cgfay.filterlibrary.glfilter.advanced.colors.GLImageSakuraFilter;
 import com.cgfay.filterlibrary.glfilter.advanced.colors.GLImageSketchFilter;
 import com.cgfay.filterlibrary.glfilter.advanced.colors.GLImageSunsetFilter;
 import com.cgfay.filterlibrary.glfilter.advanced.colors.GLImageWhiteCatFilter;
+import com.cgfay.filterlibrary.glfilter.advanced.effect.GLImageEffectIllusionFilter;
+import com.cgfay.filterlibrary.glfilter.advanced.effect.GLImageSoulStuffFilter;
 import com.cgfay.filterlibrary.glfilter.base.GLImageFilter;
 import com.cgfay.filterlibrary.glfilter.utils.GLImageFilterIndex;
 import com.cgfay.filterlibrary.glfilter.utils.GLImageFilterType;
@@ -240,6 +242,7 @@ public final class GLImageFilterManager {
 
             case NONE:      // 没有滤镜
             case SOURCE:    // 原图
+                return  new GLImageEffectIllusionFilter(context);
             default:
                 return new GLImageFilter(context);
         }
